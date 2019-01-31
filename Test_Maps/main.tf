@@ -12,6 +12,7 @@ data "azurerm_application_security_group" "test" {
   name = "${lookup(var.Web_rules[count.index], "destination_application_security_group_ids", "")}"
   #name                = "${format("%s-%s", "ASG", "${element(var.HUB_Subnets_Name, 0)}")}"
   resource_group_name = "${var.RG_Name}"
+  depends_on = ["azurerm_application_security_group.App-ASG"]
 }
 output "ASG_ID" {
   value = "${data.azurerm_application_security_group.test.*.id}"
