@@ -238,7 +238,7 @@ resource "azurerm_network_security_rule" "App-rules" {
   protocol                    = "${lookup(var.App_rules[count.index], "protocol", "*")}"
   source_port_range           = "${lookup(var.App_rules[count.index], "source_port_ranges", "*")}"
   destination_port_range      = "${lookup(var.App_rules[count.index], "destination_port_ranges", "*")}"
-  source_application_security_group_ids       = ["${azurerm_application_security_group.""${ASG_name}"".0.id}"]
+  #source_application_security_group_ids       = ["${azurerm_application_security_group.""${ASG_name}"".0.id}"]
   #source_application_security_group_ids       = ["${azurerm_application_security_group.App-ASG.0.id}"]
   destination_application_security_group_ids  = ["${azurerm_application_security_group.App-ASG.1.id}"]
   description                 = "${lookup(var.App_rules[count.index], "description")}"
