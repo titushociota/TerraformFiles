@@ -13,12 +13,12 @@ variable "App_Name" {
   description = "Application name"
 }
 
-#Resource group definition
+***#Resource group definition
 #*********************************************************
 variable "RG_Name" {
   default = "RG-Demo-Infrastructure"
 }
-#*********************************************************
+#******************************************************
 
 
 #Hub Vnet Definition
