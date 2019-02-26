@@ -1,11 +1,11 @@
-data "azurerm_subnet" "subnet1" {
+/*data "azurerm_subnet" "subnet1" {
   name                 = "${var.Subnet_Name}"
   virtual_network_name = "${var.Vnet_Name}"
   resource_group_name  = "${var.RG_Name}"
 }
-
+*/
 resource "azurerm_storage_account" "testsa" {
-  name                = "storageaccountname"
+  name                = "satitusbackendterraform"
   resource_group_name = "${var.RG_Name}"
 
   location                 = "${var.region}"
@@ -13,11 +13,12 @@ resource "azurerm_storage_account" "testsa" {
   account_replication_type = "LRS"
 
   network_rules {
-    ip_rules                   = ["127.0.0.1"]
-    virtual_network_subnet_ids = ["${data.azurerm_subnet.subnet1.id}"]
+    ip_rules                   = ["99.240.132.84"]
+    #virtual_network_subnet_ids = ["${data.azurerm_subnet.subnet1.id}"]
   }
 
   tags {
-    environment = "staging"
+    environment = "MSDN"
+    description = "My terraform State storage"
   }
 }
